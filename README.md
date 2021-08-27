@@ -1,0 +1,2 @@
+## MyTeamProfile Generator
+This  app was created to generate an employee profile based on user input using the Inquirer module from node.js. By using HTML and Style Sheet was able to display employees basic information. This project also use OOP and TDD using Jest.
