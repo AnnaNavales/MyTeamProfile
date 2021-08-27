@@ -1,15 +1,20 @@
 #page-title {
     text-align: center;
+    background-color: green;
 }
 
 .container-fluid {
-    background-color: aqua;
+    background-color:slategrey ;
     display: flex;
     justify-content: center;
 flex-wrap: wrap;
 }
 
-.card {
+.card-header {
+    background-color: green;
+}
+.card-body {
     min-width: 25%;
+    background-color: lightgoldenrodyellow;
 
 }
