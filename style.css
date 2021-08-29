@@ -1,17 +1,19 @@
+
 #page-title {
     text-align: center;
-    background-color: green;
+    background-color: brown;
+    
 }
 
 .container-fluid {
     background-color:slategrey ;
     display: flex;
     justify-content: center;
-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .card-header {
-    background-color: green;
+    background-color: lightslategray;
 }
 .card-body {
     min-width: 25%;

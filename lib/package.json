@@ -1,16 +1,11 @@
 {
   "name": "myteamprofile",
   "version": "1.0.0",
-  "description": "An app to create My Team Profile generator",
-  "main": "index.js",
+  "description": "an app to create my team profile generator",
+  "main": "Employee.js",
   "directories": {
     "lib": "lib"
   },
-  "dependencies": {
-    "inquirer": "^8.1.2",
-    "jest": "^27.0.6"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "jest"
   },
@@ -19,13 +14,12 @@
     "url": "git+https://github.com/AnnaNavales/MyTeamProfile.git"
   },
   "keywords": [
-    "[]"
+    "["
   ],
-  "author": "Anna Navales",
+  "author": "anna navales",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AnnaNavales/MyTeamProfile/issues"
   },
   "homepage": "https://github.com/AnnaNavales/MyTeamProfile#readme"
 }
-
