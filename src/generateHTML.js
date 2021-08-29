@@ -58,7 +58,7 @@ const generateIntern = function (intern) {
             
             <div class="card-body">
                 <p class="ID">ID: ${intern.id}</p>
-                <p class="Email">Email: <a href="mailto: ${intern.email}">${intern.email}</a></p>
+                <p class="Email">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
                 <p class="github">Github: <a href="https://github.com/${intern.github}">${intern.github}</a> </p>
                 <p class="school">school: ${intern.school}</p>
             </div>
@@ -67,6 +67,8 @@ const generateIntern = function (intern) {
 `
 }
 //push array 
+generateHTML = (data) => {
+// array card
 pageArray = [];
 for (let i = 0; i < DataCue.length; i++) {
     const employee = data[i];
@@ -97,6 +99,7 @@ const employeeCards = pageArray.join('')
 //return to generate html page
 const generateTeam = generateTeamPage(employeeCards);
 return generateTeam;
+}
 
 
 // generate html page
