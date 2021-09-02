@@ -2,7 +2,7 @@
 const generateManager = function (manager) {
     return `
 
-}
+
  <div class="card" style="width: 18rem;">
 
             <div class="card-header">
@@ -17,7 +17,7 @@ const generateManager = function (manager) {
                 <p class="Email">Email: <a href="mailto: ${manager.email}">${manager.email}</a></p>
             
             </div>
-      </div>
+
  </div>
  `;
 }
@@ -25,7 +25,6 @@ const generateManager = function (manager) {
 const generateEngineer = function (engineer) {
     return `
 
-}
 
         <div class="card" style="width: 18rem;">
             <div class="card-header">
@@ -37,11 +36,11 @@ const generateEngineer = function (engineer) {
             <div class="card-body">
                 <p class="ID">ID: ${engineer.id}</p>
                 <p class="Email">Email: <a href="mailto: ${engineer.email}>${engineer.email}</a></p>
-                <p class="github">Github: <a href="https://github.com/${engineer.github}">${engineere.github}</a></p>
+                <p class="github">Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
                 
             </div>
         </div>
-    </div>
+    
     `
 }
 // intern card
@@ -63,46 +62,47 @@ const generateIntern = function (intern) {
                 <p class="school">school: ${intern.school}</p>
             </div>
         </div>
-    </div>
+
 `
 }
-//push array 
-generateHTML = (data) => {
-// array card
-pageArray = [];
-for (let i = 0; i < DataCue.length; i++) {
-    const employee = data[i];
-    const role = employee.getRole();
-    //  manager function
-    if (role === 'manager') {
-        const managerCard = generateManager(employee);
 
-        pageArray.push(managerCard);
+const generateHTML = (data) => {
+
+    // array card
+    const pageArray = [];
+    for (let i = 0; i < data.length; i++) {
+        const employee = data[i];
+        const role = employee.getRole();
+        //  manager function
+        if (role === 'manager') {
+            const managerCard = generateManager(employee);
+
+            pageArray.push(managerCard);
+        }
+
+        // engineer function
+        if (role === 'engineer') {
+            const engineerCard = generateEngineer(employee);
+
+            pageArray.push(engineerCard);
+        }
+        // intern function
+        if (role === 'intern') {
+            const internCard = generateIntern(employee);
+
+            pageArray.push(internCard);
+        }
     }
-}
-// engineer function
-if (role === 'engineer') {
-    const engineerCard = generateEngineer(employee);
 
-    pageArray.push(engineerCard);
-}
-// intern function
-if (role === 'intern') {
-    const internCard = generateIntern(employee);
-
-    pageArray.push(internCard);
+    //join strings
+    const employeeCards = pageArray.join('')
+    //return to generate html page
+    const generateTeam = generateTeamPage(employeeCards);
+    return generateTeam;
 }
 
 
-//join strings
-const employeeCards = pageArray.join('')
-//return to generate html page
-const generateTeam = generateTeamPage(employeeCards);
-return generateTeam;
-}
-
-
-// generate html page
+//  html page
 
 const generateTeamPage = function (employeeCards) {
     return `
@@ -145,4 +145,4 @@ const generateTeamPage = function (employeeCards) {
 }
 
 // export to index
-module.export = generateHTML;
+module.exports = generateHTML;
