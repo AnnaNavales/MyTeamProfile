@@ -13,13 +13,12 @@ function initApp() {
 }
 function addEmployee() {
     inquirer.prompt([{
-        message: "Enter employee name",
+        message: "Enter employee's name",
         name: "name"
     },
     {
         type: "list",
-        message: "Select employee role",
-        name: "role",
+        message: "Select employee's role",
         choices: [
             "Manager",
             "Engineer",
@@ -29,11 +28,11 @@ function addEmployee() {
         name: "role"
     },
     {
-        message: "Enter employee id",
+        message: "Enter employee's id",
         name: "id"
     },
     {
-        message: "Enter employee email address",
+        message: "Enter employee's email address",
         name: "email"
     }])
         .then(function ({ name, role, id, email }) {
@@ -49,7 +48,7 @@ function addEmployee() {
 
             }
             inquirer.prompt([{
-                message: `Enter employee ${roleInfo}`,
+                message: `Enter employee's ${roleInfo}`,
                 name: "roleInfo"
             },
             {
@@ -59,7 +58,7 @@ function addEmployee() {
                     "Yes",
                     "NO"
                 ],
-                name: "addEmployees"
+                name: "addEmployee's"
             }])
         
         .then(function ({ roleInfo, addEmployees }) {
@@ -84,11 +83,14 @@ function addEmployee() {
 
             }
 
-        })
-}
+        });
+});
+};
+
 
 
 // function starthtml
+function startHTML() {
 const html = `<!DOCTYPE html>
 <html lang="en">
 
@@ -117,7 +119,7 @@ fs.writeFile("./index.html", html, function (err) {
     }
 });
 console.log("start");
-}
+
 function addHtml(employee) {
     return new Promise(function (resolve, reject) {
         const name = employee.getName();
@@ -204,7 +206,7 @@ function addHtml(employee) {
             }
         });
 
-
+    }
         console.log("end");
     }
 }
