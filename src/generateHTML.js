@@ -72,22 +72,23 @@ const generateHTML = (data) => {
     const pageArray = [];
     for (let i = 0; i < data.length; i++) {
         const employee = data[i];
+        console.log(employee)
         const role = employee.getRole();
         //  manager function
-        if (role === 'manager') {
+        if (role === 'Manager') {
             const managerCard = generateManager(employee);
 
             pageArray.push(managerCard);
         }
 
         // engineer function
-        if (role === 'engineer') {
+        if (role === 'Engineer') {
             const engineerCard = generateEngineer(employee);
 
             pageArray.push(engineerCard);
         }
         // intern function
-        if (role === 'intern') {
+        if (role === 'Intern') {
             const internCard = generateIntern(employee);
 
             pageArray.push(internCard);

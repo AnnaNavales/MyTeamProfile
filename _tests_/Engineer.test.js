@@ -2,22 +2,24 @@
 const Engineer = require ('../lib/Engineer.js');
 
    // create engineer object
-test(' create a engineer object', () => {
-    const Engineer = new Engineer('AL', '03', 'al@email.com', 'alnav03');
-    expect(engineer.github()).toBe(expect.any(String));
+test( 'create a set github username via constructor', () => {
+    const testvalue = "GithubUser";
+    const Engineer = new Engineer('AL', '03', 'al@email.com', 'testValue');
+    expect(engineer.github()).toBe(testValue);
    
     });
-    //  get from github
-    test('get engineer github value', () => {
-        const engineer = new Engineer('Al', '03', 'al@mail.com', 'alnav03');
 
-         expect(engineer.getGithub()) .toBe(expect.any(stringContaining(engineer.github.toString())));
+    test("getRole() should return \"Engineer\"", ()=> {  "Engineer";
+        const testValue = "Engineer";
+        const engineer = new Engineer('Al', '03', 'al@mail.com', 'githubUser', 'Engineer');
+
+         expect(engineer.getRle()) .toBe(testValue);
     });   
-// get job role
-test('get role of employee', () => {
 
-    const engineer = new Engineer('AL', '03', 'al@mail.com', 'alnav03');
-    expect(engineer.getRole()).toBe("Engineer");
+test("get Github username via github()", () => {
+    const testvalue = "GithubUser";
+    const engineer = new Engineer('AL', '03', 'al@mail.com', 'testValue',);
+    expect(engineer.getRole()).toBe(testValue);
 });
 
 

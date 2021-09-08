@@ -1,9 +1,9 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
-
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
+const inquirer = require("inquirer");
+const fs = require("fs");
+
 
 const employee = [];
 
@@ -48,7 +48,7 @@ function addEmployee() {
 
             }
             inquirer.prompt([{
-                message: `Enter employee's ${roleInfo}`,
+                message: `Enter employees ${roleInfo}`,
                 name: "roleInfo"
             },
             {
@@ -60,38 +60,38 @@ function addEmployee() {
                 ],
                 name: "addEmployee's"
             }])
-        
-        .then(function ({ roleInfo, addEmployees }) {
 
-            if (role === "Manager") {
-                newEmployee = new Manager(name, id, email, roleInfo);
+                .then(function ({ roleInfo, addEmployees }) {
 
-            } else if (role === "Engineer") {
-                newEmployee = new Engineer(name, id, email, roleInfo);
+                    if (role === "Manager") {
+                        newEmployee = new Manager(name, id, email, roleInfo);
 
-            } else {
-                newEmployee = new Intern(name, id, email, roleInfo);
-            }
-            employee.push(newEmployee);
-            addHTML(newEmployee)
-        })
-        .then(function () {
-            if (addEmployees === "yes") {
-                addEmployee();
-            } else {
-                finishHTML();
+                    } else if (role === "Engineer") {
+                        newEmployee = new Engineer(name, id, email, roleInfo);
 
-            }
+                    } else {
+                        newEmployee = new Intern(name, id, email, roleInfo);
+                    }
+                    employee.push(newEmployee);
+                    addHTML(newEmployee)
+                     .then(function () {
+                    if (addEmployees === "yes") {
+                        addEmployee();
+                    } else {
+                        finishHTML();
 
+                    }
+
+                });
+            });
         });
-});
-};
+}
 
 
 
 // function starthtml
 function startHTML() {
-const html = `<!DOCTYPE html>
+    const html = `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -113,26 +113,27 @@ const html = `<!DOCTYPE html>
 
     </div>
     <div class="container-fluid">`;
-fs.writeFile("./index.html", html, function (err) {
-    if (err) {
-        console.log(err);
-    }
-});
-console.log("start");
+    fs.writeFile("./index.html", html, function(err) {
+        if (err) {
+            console.log(err);
+        }
+    });
+    console.log("start");
+}
 
-function addHtml(employee) {
-    return new Promise(function (resolve, reject) {
-        const name = employee.getName();
-        const role = employee.getRole();
-        const id = employee.getId();
-        const email = employee.getEmail();
-        const officeNumber = employee.getOfficeNumber();
-
-        let data = "";
-        if (role === "Manager") {
+    function addHtml(employee) {
+        return new Promise(function(resolve, reject) {
+            const name = employee.getName();
+            const role = employee.getRole();
+            const id = employee.getId();
+            const email = employee.getEmail();
             const officeNumber = employee.getOfficeNumber();
 
-            data = `<div class="card" style="width: 18rem;">
+            let data = "";
+            if (role === "Manager") {
+                const officeNumber = employee.getOfficeNumber();
+
+                data = `<div class="card" style="width: 18rem;">
                 <div class="card-header">
                 <i class="fas fa-user-tie"></i>
                 <h4>Anneka</h4>
@@ -148,9 +149,9 @@ function addHtml(employee) {
             
             </div>
     </div>`;
-            if (role === "Engineer") {
-                const github = employee.getGithub();
-                data = `<div class="card" style="width: 18rem;">
+                if (role === "Engineer") {
+                    const github = employee.getGithub();
+                    data = `<div class="card" style="width: 18rem;">
                         <div class="card-header">
                             <i class="fas fa-user-tie"></i>
                             <h4>AL</h4>
@@ -166,9 +167,9 @@ function addHtml(employee) {
                    
                     </div>`;
 
-            } else if (role === "Intern") {
-                const school = employee.getSchool();
-                data = `<div class="card" style="width: 18rem;">
+                } else if (role === "Intern") {
+                    const school = employee.getSchool();
+                    data = `<div class="card" style="width: 18rem;">
                     < div class="card-header" >
                     <i class="fas fa-user-graduate"></i>
                     <h4>Ayla</h4>
@@ -182,32 +183,32 @@ function addHtml(employee) {
 
                         </div>
             </div >`
-            }
-            console.log("adding employee");
-            fs.appendFile("./index.html", data, function (err) {
-                if (err) {
-                    return reject(err);
-                };
-                return resolve();
-            });
-        };
-    })
-    function finishHTML() {
-        const html = `</div>
-             
+                }
+                console.log("adding employee");
+                fs.appendFile("./index.html", data, function(err) {
+                    if (err) {
+                        return reject(err);
+                    };
+                    return resolve();
+                });
+            };
+       
+        })
+    }
+        function finishHTML() {
+            const indexHtml = `</div>           
    </div>
 </body >
 </html > `;
 
-
-        fs.appendFile("./index.html", html, function(err) {
-            if (err) {
+        }
+            fs.readFile("./index.html", html,  function(err, log) {
+                if (err) {
                 console.log(err);
-            }
-        });
 
-    }
-        console.log("end");
-    }
-}
-    initApp();
+            }
+        
+        console.log(log);
+    });
+ 
+initApp();

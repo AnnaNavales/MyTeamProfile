@@ -2,7 +2,7 @@
   "name": "myteamprofile",
   "version": "1.0.0",
   "description": "An app to create My Team Profile generator",
-  "main": "index.js",
+  "main": "app.js",
   "directories": {
     "lib": "lib"
   },

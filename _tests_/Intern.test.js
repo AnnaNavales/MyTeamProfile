@@ -1,30 +1,18 @@
 //const Intern
 
-const Intern = require('./lib/');
-test('create an intern object', () => {
-    const intern = new Intern('Ayla', '04', 'ayla@email.com','UCF');
+const Intern = require("./lib/Intern.js");
+test('create an intern school via constructor', () => {
+    const testValue = "UCF"
+    const intern = new Intern('Ayla', '04', 'ayla@email.com','testValue', 'Intern');
 
-   expect(intern.school).toBe(expect.any(String));
-});
+   expect(intern.school).toBe(testValue);
 
- // get school
- test('gets intern school', () => {
-     const intern = new Intern('Ayla', '04', 'ayla@mail.com', 'ayla2021');
-     expect(intern.getSchool()).toBe(expect.stringContaining(intern.school.toString())) ;
-
- });
-
-//Employee Name
-    test('get intern name', () => {
-        const intern = new Intern('Ayla', '04', 'ayla@email.com');
-        
-        expect(intern.getName()).toBe(expect.any(String));
- 
 });
 // get job role
-test('get role of getRole', () => {
-    const intern = new Intern('Ayla', '04', 'ayla@mail.com');
+test("getRole() should return \"Intern\"", () => {
+    const testValue= "Intern";
+    const intern = new Intern('Ayla', '04', 'ayla@mail.com', 'UCF', 'Intern');
 
-    expect(intern.getRole()).toBe("Intern");
+    expect(intern.getRole()).toBe("testValue");
 
 });

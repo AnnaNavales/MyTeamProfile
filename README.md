@@ -24,3 +24,5 @@ I am prompted to enter intern's name, ID, Email, and school. Then I am taken bac
 When I'm done building my team
 Then when I exit the app and HTML is generated
 
+## Link to my video
+https://drive.google.com/file/d/1H6ZZOJAFohYpqBxvuy8Dqe4AHpt1KJKA/view
